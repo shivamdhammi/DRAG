@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SSOReg"
+    tools:layout_editor_absoluteY="81dp">
+
+    <EditText
+        android:id="@+id/id_address"
+        android:layout_width="303dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="28dp"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="phone"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_contact1" />
+
+    <EditText
+        android:id="@+id/id_email"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginStart="42dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_account" />
+
+
+    <EditText
+        android:id="@+id/id_ssoname1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginStart="37dp"
+        android:ems="10"
+        android:hint="SSO NAME"
+        android:inputType="textLongMessage"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_isonumber"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_password" />
+
+
+    <EditText
+        android:id="@+id/id_isonumber"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginStart="39dp"
+        android:ems="10"
+        android:hint="ISO Number"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/id_contact1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_ssoname1" />
+
+    <EditText
+        android:id="@+id/id_password"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="37dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_ssoname1"
+        app:layout_constraintEnd_toEndOf="@+id/id_address"
+        app:layout_constraintStart_toStartOf="@+id/id_address"
+        app:layout_constraintTop_toBottomOf="@+id/id_email" />
+
+    <EditText
+        android:id="@+id/id_repassword"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="41dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="41dp"
+        android:ems="10"
+        android:hint="Re-Enter Password "
+        android:inputType="textPassword"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/id_ssoname1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_email" />
+
+    <Button
+        android:id="@+id/id_register"
+        android:layout_width="137dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="18dp"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_address" />
+
+    <EditText
+        android:id="@+id/id_contact1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp"
+        android:ems="10"
+        android:hint="Contact No."
+        android:inputType="phone"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_address"
+        app:layout_constraintEnd_toEndOf="@+id/id_address"
+        app:layout_constraintStart_toStartOf="@+id/id_isonumber"
+        app:layout_constraintTop_toBottomOf="@+id/id_isonumber" />
+
+    <EditText
+        android:id="@+id/id_account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="58dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Account Number"
+        app:layout_constraintBottom_toTopOf="@+id/id_email"
+        app:layout_constraintEnd_toEndOf="@+id/id_repassword"
+        app:layout_constraintStart_toStartOf="@+id/id_email"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
