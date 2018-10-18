@@ -24,7 +24,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Log.d("shivam","yeah");
-                Intent intent = new Intent(getApplicationContext(), SSO.class);
+                Intent intent = new Intent(getApplicationContext(), SSOReg.class);
 
                 //Log.d("shivam","yeah1");
                 startActivity(intent);

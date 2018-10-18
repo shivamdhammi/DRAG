@@ -60,8 +60,8 @@ public class SSO extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sso);
 
-        searchbar = (EditText) findViewById(R.id.id_searchbar);
-        recyclerView = (RecyclerView)findViewById(R.id.id_recyclerView);
+        searchbar =  findViewById(R.id.id_searchbar);
+        recyclerView = findViewById(R.id.id_recyclerView);
 
         ref = FirebaseDatabase.getInstance().getReference("SSO");
         storageReference = FirebaseStorage.getInstance().getReference();

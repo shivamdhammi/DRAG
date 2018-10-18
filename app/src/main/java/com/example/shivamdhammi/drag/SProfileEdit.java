@@ -41,14 +41,15 @@ public class SProfileEdit extends AppCompatActivity {
 
     private static final int CHOOSE_IMAGE = 101 ;
     ImageView profilePic;//using bitmap.
-    EditText SSOName,ISOnumber,Address,Contact,AccountNo;
-    TextView Email;
+    EditText SSOName,ISOnumber,Address,Contact,AccountNo,State;
+    TextView Email,verify,resetPassword;
     Button Save;
     Uri uriProfileImage;//uriZProfileImage = data.getData();[inside startActivityForResult()]
     String profileImageUrl;//To store the Downloaded URL of the image
     FirebaseAuth auth;
     DatabaseReference myRef;
     StorageReference storageReference;
+    String Chooser;
 
 
     @Override
@@ -63,12 +64,17 @@ public class SProfileEdit extends AppCompatActivity {
         Address = (EditText)findViewById(R.id.id_address);
         Contact = (EditText)findViewById(R.id.id_contact1);
         AccountNo = (EditText)findViewById(R.id.id_account);
+        verify = (TextView)findViewById(R.id.id_verify);
+        resetPassword = (TextView)findViewById(R.id.id_reset);
+        State = (EditText)findViewById(R.id.id_state);
+
+        verify.setText("Not Verified");
 
         Save = (Button)findViewById(R.id.id_donate);
 
         auth = FirebaseAuth.getInstance();
 
-        Email.setText(auth.getCurrentUser().getEmail());
+        Email.setText(Email.getText().toString());
         //Toast.makeText(getApplicationContext(),test,Toast.LENGTH_LONG).show();
 
         myRef = FirebaseDatabase.getInstance().getReference("SSO");
@@ -84,7 +90,7 @@ public class SProfileEdit extends AppCompatActivity {
 
                 SSOInfo newInfo = new SSOInfo
                         (SSOName.getText().toString(),ISOnumber.getText().toString(),Email.getText().toString()
-                                ,Address.getText().toString(),Contact.getText().toString(),AccountNo.getText().toString());
+                                ,Address.getText().toString(),Contact.getText().toString(),AccountNo.getText().toString(),State.getText().toString());
 
                 myRef.child(auth.getCurrentUser().getUid()).setValue(newInfo);
                 /////
@@ -107,6 +113,45 @@ public class SProfileEdit extends AppCompatActivity {
             }
         });
 
+
+        resetPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.sendPasswordResetEmail(Email.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(getApplicationContext(),"Visit your email to reset your password.",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
+        });
+
+
+        verify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(auth.getCurrentUser().isEmailVerified()){
+                    verify.setText("Verified Account");
+                }
+                else {
+                    verify.setText("Account is not verified.");
+                    auth.getCurrentUser().sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(getApplicationContext(), "Verification Email has been sent", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+
+            }
+        });
+
+
+
+
     }
 
 
@@ -115,6 +160,8 @@ public class SProfileEdit extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         //Toast.makeText(getApplicationContext(),"Ye chl rha hai",Toast.LENGTH_LONG).show();
+
+        myRef.child(auth.getCurrentUser().getDisplayName().toString());
 
         Log.d("dikkat","Conatct"+myRef.child(auth.getCurrentUser().getUid()).child("contact"));
 
@@ -171,6 +218,7 @@ public class SProfileEdit extends AppCompatActivity {
             return;
 
         }
+
 
     }
 

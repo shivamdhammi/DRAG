@@ -25,7 +25,7 @@ import com.google.firebase.storage.StorageReference;
 
 public class SProfile extends AppCompatActivity {
 
-    TextView Email,SSOName,ISOnumber,Address,Contact,AccountNo;
+    TextView Email,SSOName,ISOnumber,Address,Contact,AccountNo,verify;
     DatabaseReference ref;
     Button donate;
     StorageReference storageReference;
@@ -47,6 +47,7 @@ public class SProfile extends AppCompatActivity {
         Address =(TextView)findViewById(R.id.id_address);
         Contact =(TextView)findViewById(R.id.id_contact1);
         AccountNo =(TextView)findViewById(R.id.id_account);
+        verify = (TextView)findViewById(R.id.id_verify);
 
         pic = (ImageView)findViewById(R.id.id_pictue);
 
@@ -63,6 +64,19 @@ public class SProfile extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
+
+        /*if(auth.getCurrentUser().isEmailVerified()){
+            verify.setText("Verified Account");
+        }
+        else {
+            verify.setText("Account is not verified.");
+            auth.getCurrentUser().sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(getApplicationContext(), "Verification Email has been sent", Toast.LENGTH_LONG).show();
+                }
+            });
+        }*/
 
     }
 

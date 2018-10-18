@@ -7,20 +7,21 @@ import java.util.Map;
 
 public class SSOInfo {
 
-    private String SSOName,ISOnumber,Email,Address,Contact,AccountNo;
+    private String SSOName,ISOnumber,Email,Address,Contact,AccountNo,State;
 
     public Map<String, Boolean> stars = new HashMap<>();
 
     public SSOInfo(){
     }
 
-    public SSOInfo(String ssoname, String isonumber, String email, String address, String contact,String accountno) {
+    public SSOInfo(String ssoname, String isonumber, String email, String address, String contact,String accountno,String state) {
         SSOName = ssoname;
         ISOnumber = isonumber;
         Email = email;
         Address = address;
         Contact = contact;
         AccountNo = accountno;
+        State = state;
     }
 
     public String getAccountno() {
@@ -47,6 +48,9 @@ public class SSOInfo {
         return Contact;
     }
 
+    public String getState() {
+        return State;
+    }
 
     public void setSSOName(String ssoname) {
         this.SSOName = ssoname;
@@ -70,6 +74,10 @@ public class SSOInfo {
 
     public void setAccountno(String Accountno) {
         AccountNo = Accountno;
+    }
+
+    public void setState(String state) {
+        State = state;
     }
 
     //ye ignore kr bhai
